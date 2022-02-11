@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TASagentStreamBot.Plugin.XInput\TASagentStreamBot.Plugin.XInput.csproj" />
+    <ProjectReference Include="..\TASagentTwitchBotCore\BGC_Tools\BGC_Tools.csproj" />
+    <ProjectReference Include="..\TASagentTwitchBotCore\TASagentTwitchBot.Core\TASagentTwitchBot.Core.csproj" />
+    <ProjectReference Include="..\TASagentTwitchBotCore\TASagentTwitchBot.Plugin.Audio.Midi\TASagentTwitchBot.Plugin.Audio.Midi.csproj" />
+  </ItemGroup>
+
+</Project>

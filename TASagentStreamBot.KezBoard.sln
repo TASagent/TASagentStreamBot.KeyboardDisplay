@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TASagentStreamBot.KezBoard", "TASagentStreamBot.KezBoard\TASagentStreamBot.KezBoard.csproj", "{4D0B41D4-6F6C-4AEB-AD33-8FE77839F163}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TASagentTwitchBotCore", "TASagentTwitchBotCore", "{343B5FF6-7D27-47EF-B1D0-3E2391C466F7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TASagentTwitchBot.Core", "TASagentTwitchBotCore\TASagentTwitchBot.Core\TASagentTwitchBot.Core.csproj", "{95995E54-6A0B-42BA-8332-2437AD03F855}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TASagentTwitchBot.Plugin.ControllerSpy", "TASagentTwitchBotCore\TASagentTwitchBot.Plugin.ControllerSpy\TASagentTwitchBot.Plugin.ControllerSpy.csproj", "{5F5DB316-F8D0-43E2-AD22-537FE136B417}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BGC_Tools", "TASagentTwitchBotCore\BGC_Tools\BGC_Tools.csproj", "{68C04820-5AE8-4844-A0E0-F150B3950443}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TASagentStreamBot.Plugin.XInput", "TASagentStreamBot.Plugin.XInput\TASagentStreamBot.Plugin.XInput.csproj", "{6442F06D-63D9-41BC-8B2E-46443F7388C7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TASagentTwitchBot.Plugin.Audio.Midi", "TASagentTwitchBotCore\TASagentTwitchBot.Plugin.Audio.Midi\TASagentTwitchBot.Plugin.Audio.Midi.csproj", "{976EBA30-E996-45A7-872F-AFC8768F752D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D0B41D4-6F6C-4AEB-AD33-8FE77839F163}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D0B41D4-6F6C-4AEB-AD33-8FE77839F163}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D0B41D4-6F6C-4AEB-AD33-8FE77839F163}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D0B41D4-6F6C-4AEB-AD33-8FE77839F163}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95995E54-6A0B-42BA-8332-2437AD03F855}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95995E54-6A0B-42BA-8332-2437AD03F855}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95995E54-6A0B-42BA-8332-2437AD03F855}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95995E54-6A0B-42BA-8332-2437AD03F855}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F5DB316-F8D0-43E2-AD22-537FE136B417}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F5DB316-F8D0-43E2-AD22-537FE136B417}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F5DB316-F8D0-43E2-AD22-537FE136B417}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F5DB316-F8D0-43E2-AD22-537FE136B417}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68C04820-5AE8-4844-A0E0-F150B3950443}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68C04820-5AE8-4844-A0E0-F150B3950443}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68C04820-5AE8-4844-A0E0-F150B3950443}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68C04820-5AE8-4844-A0E0-F150B3950443}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6442F06D-63D9-41BC-8B2E-46443F7388C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6442F06D-63D9-41BC-8B2E-46443F7388C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6442F06D-63D9-41BC-8B2E-46443F7388C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6442F06D-63D9-41BC-8B2E-46443F7388C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{976EBA30-E996-45A7-872F-AFC8768F752D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{976EBA30-E996-45A7-872F-AFC8768F752D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{976EBA30-E996-45A7-872F-AFC8768F752D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{976EBA30-E996-45A7-872F-AFC8768F752D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{95995E54-6A0B-42BA-8332-2437AD03F855} = {343B5FF6-7D27-47EF-B1D0-3E2391C466F7}
+		{5F5DB316-F8D0-43E2-AD22-537FE136B417} = {343B5FF6-7D27-47EF-B1D0-3E2391C466F7}
+		{68C04820-5AE8-4844-A0E0-F150B3950443} = {343B5FF6-7D27-47EF-B1D0-3E2391C466F7}
+		{976EBA30-E996-45A7-872F-AFC8768F752D} = {343B5FF6-7D27-47EF-B1D0-3E2391C466F7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BAD37707-7585-4B6D-8C18-42873A67D53A}
+	EndGlobalSection
+EndGlobal

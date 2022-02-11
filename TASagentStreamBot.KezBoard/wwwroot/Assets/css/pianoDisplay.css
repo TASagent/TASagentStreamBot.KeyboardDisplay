@@ -1,0 +1,44 @@
+.Keyboard {
+    display: inline-block;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    border-style: none;
+    user-select: none;
+    cursor: default;
+    width: 715px;
+    height: 151px;
+}
+
+.Key {
+    border-color: rgb(0, 0, 0);
+    top: 0px;
+    display: inline-block;
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    border-style: solid;
+}
+
+.WhiteKey {
+    background-color: rgb(255, 255, 255);
+    border-width: 4px;
+    width: 41px;
+    height: 149px;
+    vertical-align: top;
+}
+
+.BlackKey {
+    background-color: rgb(0, 0, 0);
+    border-width: 4px;
+    width: 23px;
+    height: 90px;
+}
+
+.WhiteKey.On {
+    background-color: rgb(100, 100, 255);
+}
+
+.BlackKey.On {
+    background-color: rgb(50, 50, 155);
+}

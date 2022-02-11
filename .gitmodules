@@ -1,0 +1,6 @@
+[submodule "TASagentTwitchBotCore"]
+	path = TASagentTwitchBotCore
+	url = https://github.com/TASagent/TASagentTwitchBotCore
+[submodule "TASagentStreamBot.Plugin.XInput"]
+	path = TASagentStreamBot.Plugin.XInput
+	url = https://github.com/TASagent/TASagentStreamBot.Plugin.XInput
