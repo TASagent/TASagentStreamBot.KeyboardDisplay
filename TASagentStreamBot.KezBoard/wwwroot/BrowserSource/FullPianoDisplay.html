@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:,">
+  <title>Piano Display</title>
+
+  <script src="/Assets/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="/Assets/libs/signalr/6.0.0/signalr.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/Assets/css/pianoDisplay.css" />
+</head>
+<body>
+  <div class="Keyboard">
+    <span class="WhiteKeySet">
+      <span class="Key WhiteKey" id="k24"></span>
+      <span class="Key WhiteKey" id="k26"></span>
+      <span class="Key WhiteKey" id="k28"></span>
+      <span class="Key WhiteKey" id="k29"></span>
+      <span class="Key WhiteKey" id="k31"></span>
+      <span class="Key WhiteKey" id="k33"></span>
+      <span class="Key WhiteKey" id="k35"></span>
+      <span class="Key WhiteKey" id="k36"></span>
+      <span class="Key WhiteKey" id="k38"></span>
+      <span class="Key WhiteKey" id="k40"></span>
+      <span class="Key WhiteKey" id="k41"></span>
+      <span class="Key WhiteKey" id="k43"></span>
+      <span class="Key WhiteKey" id="k45"></span>
+      <span class="Key WhiteKey" id="k47"></span>
+      <span class="Key WhiteKey" id="k48"></span>
+      <span class="Key WhiteKey" id="k50"></span>
+      <span class="Key WhiteKey" id="k52"></span>
+      <span class="Key WhiteKey" id="k53"></span>
+      <span class="Key WhiteKey" id="k55"></span>
+      <span class="Key WhiteKey" id="k57"></span>
+      <span class="Key WhiteKey" id="k59"></span>
+      <span class="Key WhiteKey" id="k60"></span>
+      <span class="Key WhiteKey" id="k62"></span>
+      <span class="Key WhiteKey" id="k64"></span>
+      <span class="Key WhiteKey" id="k65"></span>
+      <span class="Key WhiteKey" id="k67"></span>
+      <span class="Key WhiteKey" id="k69"></span>
+      <span class="Key WhiteKey" id="k71"></span>
+      <span class="Key WhiteKey" id="k72"></span>
+      <span class="Key WhiteKey" id="k74"></span>
+      <span class="Key WhiteKey" id="k76"></span>
+      <span class="Key WhiteKey" id="k77"></span>
+      <span class="Key WhiteKey" id="k79"></span>
+      <span class="Key WhiteKey" id="k81"></span>
+      <span class="Key WhiteKey" id="k83"></span>
+      <span class="Key WhiteKey" id="k84"></span>
+      <span class="Key WhiteKey" id="k86"></span>
+      <span class="Key WhiteKey" id="k88"></span>
+      <span class="Key WhiteKey" id="k89"></span>
+      <span class="Key WhiteKey" id="k91"></span>
+      <span class="Key WhiteKey" id="k93"></span>
+      <span class="Key WhiteKey" id="k95"></span>
+      <span class="Key WhiteKey" id="k96"></span>
+    </span>
+    <div class="BlackKeySet">
+      <span class="Key BlackKey BlackKeyLeft" id="k25"></span>
+      <span class="Key BlackKey BlackKeyRight" id="k27"></span>
+      <span class="Key BlackKeySpacer"></span>
+      <span class="Key BlackKey BlackKeyLeft" id="k30"></span>
+      <span class="Key BlackKey BlackKeyCenter" id="k32"></span>
+      <span class="Key BlackKey BlackKeyRight" id="k34"></span>
+      <span class="Key BlackKeySpacer"></span>
+      <span class="Key BlackKey BlackKeyLeft" id="k37"></span>
+      <span class="Key BlackKey BlackKeyRight" id="k39"></span>
+      <span class="Key BlackKeySpacer"></span>
+      <span class="Key BlackKey BlackKeyLeft" id="k42"></span>
+      <span class="Key BlackKey BlackKeyCenter" id="k44"></span>
+      <span class="Key BlackKey BlackKeyRight" id="k46"></span>
+      <span class="Key BlackKeySpacer"></span>
+      <span class="Key BlackKey BlackKeyLeft" id="k49"></span>
+      <span class="Key BlackKey BlackKeyRight" id="k51"></span>
+      <span class="Key BlackKeySpacer"></span>
+      <span class="Key BlackKey BlackKeyLeft" id="k54"></span>
+      <span class="Key BlackKey BlackKeyCenter" id="k56"></span>
+      <span class="Key BlackKey BlackKeyRight" id="k58"></span>
+      <span class="Key BlackKeySpacer"></span>
+      <span class="Key BlackKey BlackKeyLeft" id="k61"></span>
+      <span class="Key BlackKey BlackKeyRight" id="k63"></span>
+      <span class="Key BlackKeySpacer"></span>
+      <span class="Key BlackKey BlackKeyLeft" id="k66"></span>
+      <span class="Key BlackKey BlackKeyCenter" id="k68"></span>
+      <span class="Key BlackKey BlackKeyRight" id="k70"></span>
+      <span class="Key BlackKeySpacer"></span>
+      <span class="Key BlackKey BlackKeyLeft" id="k73"></span>
+      <span class="Key BlackKey BlackKeyRight" id="k75"></span>
+      <span class="Key BlackKeySpacer"></span>
+      <span class="Key BlackKey BlackKeyLeft" id="k78"></span>
+      <span class="Key BlackKey BlackKeyCenter" id="k80"></span>
+      <span class="Key BlackKey BlackKeyRight" id="k82"></span>
+      <span class="Key BlackKeySpacer"></span>
+      <span class="Key BlackKey BlackKeyLeft" id="k85"></span>
+      <span class="Key BlackKey BlackKeyRight" id="k87"></span>
+      <span class="Key BlackKeySpacer"></span>
+      <span class="Key BlackKey BlackKeyLeft" id="k90"></span>
+      <span class="Key BlackKey BlackKeyCenter" id="k92"></span>
+      <span class="Key BlackKey BlackKeyRight" id="k94"></span>
+    </div>
+  </div>
+
+  <script src="/Assets/js/pianoDisplay.js"></script>
+</body>
+</html>

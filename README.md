@@ -12,5 +12,12 @@ To build the project, get the appropriate [NetCore 6 SDK (With AspNet)](https://
 
 In OBS, you can optionally add the following BrowserSource(s):
 
-`http://localhost:5000/BrowserSource/PianoDisplay.html` - Piano input display overlay
+`http://localhost:5000/BrowserSource/PianoDisplay.html` - Small Piano input display overlay
 
+![Partial Board](Assets/boardOverlayDemo.png)
+
+
+
+`http://localhost:5000/BrowserSource/FullPianoDisplay.html` - Full Piano input display overlay
+
+![Full Board](Assets/fullBoardOverlayDemo.png)

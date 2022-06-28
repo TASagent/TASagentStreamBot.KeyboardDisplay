@@ -16,7 +16,7 @@ public class KezBoardView : TASagentTwitchBot.Core.View.BasicView, IKeyPressList
     private readonly ControllerMidiBinding controllerMidiBinding;
     private readonly MidiBindingConfig midiBindingConfig;
     private readonly ICommunication communication;
-    private readonly MidiKeyboardHandler midiKeyboardHandler;
+    private readonly IMidiDeviceManager midiDeviceManager;
 
     private State state = State.Playing;
     private List<string> midiDevices;
@@ -26,7 +26,7 @@ public class KezBoardView : TASagentTwitchBot.Core.View.BasicView, IKeyPressList
         BotConfiguration botConfig,
         MidiBindingConfig midiBindingConfig,
         ICommunication communication,
-        MidiKeyboardHandler midiKeyboardHandler,
+        IMidiDeviceManager midiDeviceManager,
         ControllerMidiBinding controllerMidiBinding,
         ApplicationManagement applicationManagement)
         : base(
@@ -36,16 +36,16 @@ public class KezBoardView : TASagentTwitchBot.Core.View.BasicView, IKeyPressList
     {
         this.controllerMidiBinding = controllerMidiBinding;
         this.midiBindingConfig = midiBindingConfig;
-        this.midiKeyboardHandler = midiKeyboardHandler;
+        this.midiDeviceManager = midiDeviceManager;
         this.communication = communication;
 
-        midiDevices = midiKeyboardHandler.GetMidiDevices();
+        midiDevices = midiDeviceManager.GetMidiDevices();
         bool setDevice = false;
 
         if (!string.IsNullOrEmpty(midiBindingConfig.MidiDevice) && midiDevices.Contains(midiBindingConfig.MidiDevice))
         {
             //Restore saved device
-            setDevice = midiKeyboardHandler.UpdateCurrentMidiDevice(midiBindingConfig.MidiDevice);
+            setDevice = midiDeviceManager.UpdateMidiDevice(0, midiBindingConfig.MidiDevice);
 
             if (setDevice)
             {
@@ -56,7 +56,7 @@ public class KezBoardView : TASagentTwitchBot.Core.View.BasicView, IKeyPressList
         if (!setDevice && midiDevices.Count > 0)
         {
             //Set to first device
-            setDevice = midiKeyboardHandler.UpdateCurrentMidiDevice(midiDevices[0]);
+            setDevice = midiDeviceManager.UpdateMidiDevice(0, midiDevices[0]);
 
             if (setDevice)
             {
@@ -119,7 +119,7 @@ public class KezBoardView : TASagentTwitchBot.Core.View.BasicView, IKeyPressList
                     "Press ESCAPE to Abort device selection.\n" +
                     "Press the NUMBER corresponding to a midi device below to select that device.");
 
-                midiDevices = midiKeyboardHandler.GetMidiDevices();
+                midiDevices = midiDeviceManager.GetMidiDevices();
                 if (midiDevices.Count > 0)
                 {
                     communication.SendDebugMessage($"Midi Devices:\n{string.Join("\n", midiDevices.Select((x,i) => $"  {i+1}) {x}"))}");
@@ -431,7 +431,7 @@ public class KezBoardView : TASagentTwitchBot.Core.View.BasicView, IKeyPressList
                     if (value < midiDevices.Count)
                     {
                         midiBindingConfig.MidiDevice = midiDevices[value];
-                        midiKeyboardHandler.UpdateCurrentMidiDevice(midiBindingConfig.MidiDevice);
+                        midiDeviceManager.UpdateMidiDevice(0, midiBindingConfig.MidiDevice);
 
                         midiBindingConfig.Serialize();
 
