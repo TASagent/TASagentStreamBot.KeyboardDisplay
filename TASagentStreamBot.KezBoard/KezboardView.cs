@@ -40,6 +40,13 @@ public class KezBoardView : TASagentTwitchBot.Core.View.BasicView, IKeyPressList
         this.communication = communication;
 
         midiDevices = midiDeviceManager.GetMidiDevices();
+
+        PrintInstructions();
+    }
+    public override void NotifyStartup()
+    {
+        base.NotifyStartup();
+
         bool setDevice = false;
 
         if (!string.IsNullOrEmpty(midiBindingConfig.MidiDevice) && midiDevices.Contains(midiBindingConfig.MidiDevice))
@@ -49,7 +56,7 @@ public class KezBoardView : TASagentTwitchBot.Core.View.BasicView, IKeyPressList
 
             if (setDevice)
             {
-                communication.SendDebugMessage($"Midi Device connected from settings: {midiBindingConfig.MidiDevice}");
+                communication.SendDebugMessage($"Midi Device connected from settings: {midiBindingConfig.MidiDevice}\n");
             }
         }
 
@@ -60,16 +67,14 @@ public class KezBoardView : TASagentTwitchBot.Core.View.BasicView, IKeyPressList
 
             if (setDevice)
             {
-                communication.SendDebugMessage($"Midi Device set to first device detected: {midiDevices[0]}");
+                communication.SendDebugMessage($"Midi Device set to first device detected: {midiDevices[0]}\n");
             }
         }
 
         if (!setDevice)
         {
-            communication.SendDebugMessage($"No Midi Device detected");
+            communication.SendDebugMessage($"No Midi Device detected\n");
         }
-
-        PrintInstructions();
     }
 
     private void PrintInstructions()
@@ -81,28 +86,28 @@ public class KezBoardView : TASagentTwitchBot.Core.View.BasicView, IKeyPressList
                     "\n********* EDIT ***********\n" +
                     "Press ESCAPE to end binding editing and enable playing.\n" +
                     "Press A to Add/Edit a binding.\n" +
-                    "Press S to Remove a binding.");
+                    "Press S to Remove a binding.\n");
 
                 if (midiBindingConfig.KeyMapping.Count > 0)
                 {
-                    communication.SendDebugMessage($"Current Bindings:\n{string.Join("\n", midiBindingConfig.KeyMapping.Select(x => $"  Key {x.Key} -> {x.Value.ToString()[4..]}"))}");
+                    communication.SendDebugMessage($"Current Bindings:\n{string.Join("\n", midiBindingConfig.KeyMapping.Select(x => $"  Key {x.Key} -> {x.Value.ToString()[4..]}"))}\n");
                 }
                 else
                 {
-                    communication.SendDebugMessage($"Current Bindings: NONE");
+                    communication.SendDebugMessage($"Current Bindings: NONE\n");
                 }
                 break;
 
             case State.EditingAddBinding:
                 communication.SendDebugMessage(
                     "\n********* ADD ***********\n" +
-                    "Press the Midi key to bind, then the keyboard key to bind it to.");
+                    "Press the Midi key to bind, then the keyboard key to bind it to.\n");
                 break;
 
             case State.EditingRemoveBinding:
                 communication.SendDebugMessage(
                     "\n********* REMOVE ***********\n" +
-                    "Press the Midi key to unbind.");
+                    "Press the Midi key to unbind.\n");
                 break;
 
             case State.Playing:
@@ -110,23 +115,23 @@ public class KezBoardView : TASagentTwitchBot.Core.View.BasicView, IKeyPressList
                     "\n********* PLAY ***********\n" +
                     "Press CTRL-Q to save and quit\n" +
                     "Press A to Change the current Midi Device.\n" +
-                    "Press S to Edit current bindings.");
+                    "Press S to Edit current bindings.\n");
                 break;
 
             case State.SettingDevice:
                 communication.SendDebugMessage(
                     "\n********* SET DEVICE ***********\n" +
                     "Press ESCAPE to Abort device selection.\n" +
-                    "Press the NUMBER corresponding to a midi device below to select that device.");
+                    "Press the NUMBER corresponding to a midi device below to select that device.\n");
 
                 midiDevices = midiDeviceManager.GetMidiDevices();
                 if (midiDevices.Count > 0)
                 {
-                    communication.SendDebugMessage($"Midi Devices:\n{string.Join("\n", midiDevices.Select((x,i) => $"  {i+1}) {x}"))}");
+                    communication.SendDebugMessage($"Midi Devices:\n{string.Join("\n", midiDevices.Select((x,i) => $"  {i+1}) {x}"))}\n");
                 }
                 else
                 {
-                    communication.SendDebugMessage("Midi Devices: None Detected");
+                    communication.SendDebugMessage("Midi Devices: None Detected\n");
                 }
                 break;
 
@@ -488,6 +493,8 @@ public class KezBoardView : TASagentTwitchBot.Core.View.BasicView, IKeyPressList
                     communication.SendDebugMessage($"Key {key} unbound.");
                     state = State.EditingModeSelection;
                     PrintInstructions();
+
+                    midiBindingConfig.Serialize();
                 }
                 break;
         }

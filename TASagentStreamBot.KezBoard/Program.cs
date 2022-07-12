@@ -98,6 +98,9 @@ app.UseRouting();
 app.UseAuthorization();
 app.UseDefaultFiles();
 
+//Use custom files
+app.UseDocumentsOverrideContent();
+
 //Custom Web Assets
 app.UseStaticFiles();
 
@@ -155,12 +158,6 @@ IMidiDeviceManager midiDeviceManager = app.Services.GetRequiredService<IMidiDevi
 MidiKeyboardHandler midiKeyboardHandler = app.Services.GetRequiredService<MidiKeyboardHandler>();
 
 midiKeyboardHandler.BindToCustomBinding(midiBinding);
-
-List<string> midiDevices = midiDeviceManager.GetMidiDevices();
-if (midiDevices.Count > 0)
-{
-    midiDeviceManager.UpdateMidiDevice(0, midiDevices[0]);
-}
 
 //
 // Wait for signal to end application
