@@ -1,12 +1,20 @@
 using Microsoft.AspNetCore.HttpOverrides;
-using Microsoft.EntityFrameworkCore;
 
 using TASagentTwitchBot.Core.Extensions;
 using TASagentTwitchBot.Core.Web;
 using TASagentTwitchBot.Plugin.Audio.Midi;
 
 //Initialize DataManagement
-BGC.IO.DataManagement.Initialize("TASagentBotKezBoard");
+string oldPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "TASagentBotKezBoard");
+string newPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "TASagentBotKeyboardDisplay");
+
+if (Directory.Exists(oldPath))
+{
+    Directory.Move(oldPath, newPath);
+}
+
+
+BGC.IO.DataManagement.Initialize("TASagentBotKeyboardDisplay");
 
 //
 // Define and register services
@@ -39,11 +47,11 @@ builder.Services
 
 //Custom Core Systems
 builder.Services
-    .AddTASSingleton<TASagentStreamBot.KezBoard.KezBoardView>();
+    .AddTASSingleton<TASagentStreamBot.KeyboardDisplay.KeyboardView>();
 
 //Custom Configurator
 builder.Services
-    .AddTASSingleton<TASagentStreamBot.KezBoard.Configurator>();
+    .AddTASSingleton<TASagentStreamBot.KeyboardDisplay.Configurator>();
 
 //Core Audio System
 builder.Services
@@ -68,8 +76,8 @@ builder.Services.RegisterMidiServices();
 
 //Custom Midi Components
 builder.Services
-    .AddTASSingleton(TASagentStreamBot.KezBoard.MidiBindingConfig.GetConfig())
-    .AddTASSingleton<TASagentStreamBot.KezBoard.ControllerMidiBinding>();
+    .AddTASSingleton(TASagentStreamBot.KeyboardDisplay.MidiBindingConfig.GetConfig())
+    .AddTASSingleton<TASagentStreamBot.KeyboardDisplay.ControllerMidiBinding>();
 
 //XInput Services
 builder.Services
@@ -115,7 +123,7 @@ app.MapControllers();
 
 //Core Control Page Hub
 app.MapHub<TASagentTwitchBot.Core.Web.Hubs.MonitorHub>("/Hubs/Monitor");
-app.MapHub<TASagentStreamBot.KezBoard.Web.Hubs.PianoDisplayHub>("/Hubs/PianoDisplay");
+app.MapHub<TASagentStreamBot.KeyboardDisplay.Web.Hubs.PianoDisplayHub>("/Hubs/PianoDisplay");
 
 await app.StartAsync();
 
@@ -151,8 +159,8 @@ foreach (TASagentTwitchBot.Core.IStartupListener startupListener in app.Services
 }
 
 
-TASagentStreamBot.KezBoard.ControllerMidiBinding midiBinding =
-    app.Services.GetRequiredService<TASagentStreamBot.KezBoard.ControllerMidiBinding>();
+TASagentStreamBot.KeyboardDisplay.ControllerMidiBinding midiBinding =
+    app.Services.GetRequiredService<TASagentStreamBot.KeyboardDisplay.ControllerMidiBinding>();
 
 IMidiDeviceManager midiDeviceManager = app.Services.GetRequiredService<IMidiDeviceManager>();
 MidiKeyboardHandler midiKeyboardHandler = app.Services.GetRequiredService<MidiKeyboardHandler>();

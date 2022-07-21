@@ -1,4 +1,4 @@
-﻿namespace TASagentStreamBot.KezBoard;
+﻿namespace TASagentStreamBot.KeyboardDisplay;
 
 public class Configurator : TASagentTwitchBot.Core.BaseConfigurator
 {

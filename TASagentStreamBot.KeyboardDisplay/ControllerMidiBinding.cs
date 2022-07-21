@@ -3,7 +3,7 @@ using BGC.Audio;
 using TASagentTwitchBot.Plugin.Audio.Midi;
 using TASagentTwitchBot.Plugin.XInput;
 
-namespace TASagentStreamBot.KezBoard;
+namespace TASagentStreamBot.KeyboardDisplay;
 
 public class ControllerMidiBinding : MidiKeyboardHandler.MidiBinding
 {

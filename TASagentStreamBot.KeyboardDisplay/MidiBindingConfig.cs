@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using TASagentTwitchBot.Plugin.XInput;
 
-namespace TASagentStreamBot.KezBoard;
+namespace TASagentStreamBot.KeyboardDisplay;
 
 public class MidiBindingConfig
 {

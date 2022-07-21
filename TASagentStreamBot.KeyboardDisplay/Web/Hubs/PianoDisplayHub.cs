@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 
-namespace TASagentStreamBot.KezBoard.Web.Hubs;
+namespace TASagentStreamBot.KeyboardDisplay.Web.Hubs;
 
 public class PianoDisplayHub : Hub
 {

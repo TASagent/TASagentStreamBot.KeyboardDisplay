@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "TASagentStreamBot.KezBoard": {
+    "TASagentStreamBot.KeyboardDisplay": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": false,

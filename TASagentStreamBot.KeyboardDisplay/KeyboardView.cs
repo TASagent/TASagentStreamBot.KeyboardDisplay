@@ -3,7 +3,7 @@ using TASagentTwitchBot.Core.Config;
 using TASagentTwitchBot.Plugin.Audio.Midi;
 using TASagentTwitchBot.Plugin.XInput;
 
-namespace TASagentStreamBot.KezBoard;
+namespace TASagentStreamBot.KeyboardDisplay;
 
 public interface IKeyPressListener
 {
@@ -11,7 +11,7 @@ public interface IKeyPressListener
     void HandleKeyUp(int key);
 }
 
-public class KezBoardView : TASagentTwitchBot.Core.View.BasicView, IKeyPressListener
+public class KeyboardView : TASagentTwitchBot.Core.View.BasicView, IKeyPressListener
 {
     private readonly ControllerMidiBinding controllerMidiBinding;
     private readonly MidiBindingConfig midiBindingConfig;
@@ -22,7 +22,7 @@ public class KezBoardView : TASagentTwitchBot.Core.View.BasicView, IKeyPressList
     private List<string> midiDevices;
     private int? midiKey = null;
 
-    public KezBoardView(
+    public KeyboardView(
         BotConfiguration botConfig,
         MidiBindingConfig midiBindingConfig,
         ICommunication communication,
